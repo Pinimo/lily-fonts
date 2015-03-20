@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 
-# This file is part of the Gruppen project
-# https://git.ursliska.de/openlilylib/gruppen
+# This file is part of the lily-fonts project
+# https://github.com/openlilylib/lily-fonts
 #
-# Copyright (c) 2014 by Urs Liska and others
-# (as documented by the Git history)
+# Copyright (c) 2015 by Urs Liska (ul@openlilylib.org)
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
