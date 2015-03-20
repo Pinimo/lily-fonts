@@ -1,1 +1,5 @@
+# Python files
+*.pyc
+
+# Files to store LilyPond installation lists
 .target*
