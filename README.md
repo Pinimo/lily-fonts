@@ -17,7 +17,7 @@ library inside [`openLilyLib`](https://github.com/openlilylib/openlilylib).
 `install-lily-fonts` is a Python script that makes the maintenance of your
 collection of alternative fonts within any number of LilyPond installations a
 mostly automatic process. It is written and maintained by Urs Liska (ul@openlilylib.org)
-and released under the GPL version 3 or later. See COPYING for details.
+and released under the GPL version 3 or later. See [COPYING](COPYING) for details.
 
 
 ## Concept
