@@ -47,36 +47,44 @@ def create_parser():
         description = ("Install extra fonts for LilyPond from http://fonts.openlilylib.org"))
         
     parser.add_argument('-d', '--font-directory', 
-        default = os.getcwd(), 
         help=("Root directory where all fonts are stored.\n" +
               "Defaults to the current working directory."))
-    parser.add_argument('-e', '--lilypond-executable', 
+    parser.add_argument('-t', '--targets',
+        required=True,
+        nargs='+',
         help=("Path (absolute or relative to current working directory) " +
               "LilyPond executable. If not given some attempts are done " +
               "to determine it automatically."))
     # not implemented yet
-    parser.add_argument('-b', '--batch', 
+    parser.add_argument('-b', '--batch',
+        action='store_true',
         help=("Run in batch mode. This means:\n" +
               "- In case of doubts don't ask but abort the script\n" +
               "- Don't ask for choices but install/update all found fonts\n" +
               "- Quietly overwrite existing files"))
     # not implemented yet
-    parser.add_argument('-f', '--force', 
+    parser.add_argument('-f', '--force',
+        action='store_true',
         help=("Don't try to determine updated fonts, overwrite everything " +
               "with upstream files."))
     # not implemented yet
-    parser.add_argument('-l', '--local', 
+    parser.add_argument('-l', '--local',
+        action='store_true',
         help=("Consider the local font catalog up to date, don't download " +
               "the remote one. Useful for updating multiple LilyPond installations."))
-                
+    parser.add_argument('-i', '--init',
+        action='store_true',
+        help=("Initialize a new local font repository. Do not consider a missing " +
+              "catalog file an error."))
+
     # Make sure debugger options are recognized as valid. These are passed automatically
     # from PyDev in Eclipse to the inferior process.
     if "pydevd" in sys.modules:
-        parser.add_option('-v', '--vm_type')
-        parser.add_option('-a', '--client')
-        parser.add_option('-p', '--port')
-        parser.add_option('-f', '--file')
-        parser.add_option('-o', '--output')
+        parser.add_argument('-v', '--vm_type')
+        parser.add_argument('-a', '--client')
+        parser.add_argument('-p', '--port')
+        parser.add_argument('-f', '--file')
+        parser.add_argument('-o', '--output')
 
 create_parser()
 
