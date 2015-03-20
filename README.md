@@ -132,4 +132,48 @@ that any error condition will immediately abort the script with an error
 
 ### Operation In Detail
 
-**TODO:** Explain the three steps download/extration/linking and when and what actually happens.
+Operation of `install-lily-fonts` comprises three stages: downloading, extracting, and linking.
+The first two operations are dependent on the font repository alone, while the third depends
+on the actual LilyPond installations targeted.
+
+##### Determining New/Updated Fonts
+
+The first step is to download a *font catalog* from fonts.openlilylib.org (if the `--local`
+option hasn't been set). This catalog contains entries for each available font, listing
+the version number along with the display and file names. This catalog is compared to the 
+corresponding catalog in your local font repository, to detect any new or updated fonts.
+If no local catalog file is found it is assumed that you are creating a new local repository
+but you will be asked if you'd rather abort the program and enter a different path next time.
+
+##### Downloading and Extracting Font Archives
+
+If a font is considered out of date - or if it is not but the corresponding file is missing -
+the font's archive file is downloaded from the server and extracted within the local
+repository. The program tries to also detect cases when extracted directories are missing and
+will extract them again.
+
+The archive files are not used in the course of the font installation, but you may want to 
+inspect them anyway, as they contain more files like usage examples and licensing/history
+information for the fonts.
+
+The result of this process is a directory structure with one directory for each font, 
+containing an `otf` and an `svg` directory each. This is where the (single) physical copies
+of the font files are stored on your disk.
+
+##### "Installing" Fonts in LilyPond Installations
+
+The main part of the "installation" process is creating symbolic links in the font directories
+of a LilyPond installation. `install-lily-fonts` will iterate over the target installations and
+perform the following steps:
+
+- Check if the list of font entries in the target directory matches the list of available files
+for the given font. If a mismatch is detected then the target directory is cleaned (the links are
+removed and new links are added to the files in the local repository). This is done to avoid the
+situation that existing links point to font files that are no longer existing. However, this (so
+far) only works by comparing file names, so if for example the location of the local font
+repository has changed this would go unnoticed. Use the `--force` option for such cases.  
+If existing entries are detected to be physical files you are prompted to choose between
+replacing them with the new links or to skip the installation of this font. In both cases you are
+asked whether the decision should be remembered for cases in fonts processed later. Usually you
+will want to replace physical font files from an earlier manual installation with the links to
+updated fonts, but the option is there, just to avoid destructive outcome.
