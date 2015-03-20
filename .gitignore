@@ -3,3 +3,7 @@
 
 # Files to store LilyPond installation lists
 .target*
+
+# PyCharm and Eric4 project files
+*.idea
+*.Eric4
