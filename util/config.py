@@ -156,9 +156,7 @@ class Config(object):
         if not os.path.isdir(arg_dir):
             msg = ("Font directory argument doesn't " +
                    "point to existing directory:\n  {}".format(arg_dir))
-            if Config.batch():
-                error("{}\nAborting".format(msg))
-            elif Config.init():
+            if Config.init():
                 print "Initializing new repository."
                 try:
                     os.makedirs(arg_dir)
@@ -168,6 +166,8 @@ class Config(object):
                             arg_dir,
                             str(e)
                         ))
+            elif Config.batch():
+                error("{}\nAborting".format(msg))
             else:
                 if raw_input("{}\n Do you want to create it (y/anything)? ".format(msg)).lower() == "y":
                     try:
