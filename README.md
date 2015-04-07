@@ -1,7 +1,7 @@
 Alternative Notation Fonts for GNU LilyPond
 -------------------------------------------
 
-As of version 2.19.12 the [GNU LilyPond}(http://lilypond.org) musical typesetter
+As of version 2.19.12 the [GNU LilyPond](http://lilypond.org) musical typesetter
 can make use of alternatives to the built-in notation font *Emmentaler*. For the
 current stable version 2.18.2 there is a patch available that can be applied
 reasonably simple.
