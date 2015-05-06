@@ -52,7 +52,7 @@ def create_parser():
         required=True,
         nargs='+',
         help=("Path (absolute or relative to current working directory) " +
-              "LilyPond executable. If not given some attempts are done " +
+              "to LilyPond executable. If not given some attempts are done " +
               "to determine it automatically."))
     # not implemented yet
     parser.add_argument('-b', '--batch',
