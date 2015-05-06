@@ -51,6 +51,11 @@ You can run `python install-lily-fonts --help` at any time to get information on
 available command line options, which is up to date even if this README should not
 have been updated.
 
+(At least) on Arch Linux the default is now Python 3, whereas `install-lily-fonts` requires Python 2, so you need to use:
+```
+python2 install-lily-fonts [options]
+```
+
 
 ### Main Configuration
 
