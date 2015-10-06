@@ -34,7 +34,7 @@ from util import error
 # Constants:
 from util.font import Font
 
-FONT_HOST = 'http://fonts.openlilylib.org'
+FONT_HOST = 'https://fonts.openlilylib.org'
 FONT_CATALOG_FILE_NAME = 'CATALOG'
 FONT_CATALOG_URL = '{}/{}'.format(FONT_HOST, FONT_CATALOG_FILE_NAME)
 
@@ -116,8 +116,7 @@ class Catalog(object):
                 result['name'] = " ".join(lst[2:])
                 return result
             except:
-                print "Illegal line in {} font catalog file, skipping:\n  {}".format(
-                    target, line)
+                print "Illegal line in font catalog file, skipping:\n  {}".format(line)
                 return None
 
         result = []
