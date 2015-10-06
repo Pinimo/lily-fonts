@@ -31,9 +31,9 @@ the LilyPond installation. While this is already an improvement keeping the
 process.
 
 This is where `install-lily-fonts` comes in: it maintains a local font repository with
-a catalog of installed fonts and versions. From this it can detect additions and
-pdates on the server, download and extract the archives and manage the links 
-in the LilyPond installation. 
+a catalog of installed fonts and versions. From this it can watch for additions and
+updates on the server, download the fonts in the detected font directory and manage
+the links in the LilyPond installation. 
 
 **Note:** So far this program only works on Linux and Mac OS because Python seems not
 able to create symbolic links on Windows. Any help regarding this issue is greatly
